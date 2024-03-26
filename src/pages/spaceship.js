@@ -74,7 +74,7 @@ function SpaceShip() {
               <tr
                 className="cursor-pointer"
                 onClick={() =>
-                  navgate(`/dashboard/spaceship-info/${index + 1}`)
+                  navgate(`/dashboard/spaceship-info/${index + 2}`)
                 }
               >
                 <td className="border-b border-gray-200 p-2 py-5">

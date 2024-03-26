@@ -13,9 +13,7 @@ function SpaceShipInfo() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(
-          `https://swapi.dev/api/starships/${id}/`
-        );
+        const response = await axios.get(`https://swapi.dev/api/starships/2/`);
         setData(response.data);
         setLoading(false);
       } catch (error) {
