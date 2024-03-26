@@ -91,10 +91,10 @@ function Species() {
                   {item?.hair_colors}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.created}
-                </td>
-                <td className="border-b border-gray-200 p-2 py-5">
                   {item?.average_height}
+                </td>{" "}
+                <td className="border-b border-gray-200 p-2 py-5">
+                  {new Date(item?.created)}
                 </td>
               </tr>
             ))}
