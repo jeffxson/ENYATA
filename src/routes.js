@@ -10,6 +10,9 @@ import SpaceShip from "./pages/spaceship";
 import People from "./pages/people";
 import Species from "./pages/species";
 import PeopleInfo from "./pages/peopleInfo";
+import SpeciesInfo from "./pages/speciesInfo";
+import SpaceShipInfo from "./pages/spaceshipinfo";
+import FilmInfo from "./pages/filmInfo";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +23,10 @@ export const router = createBrowserRouter(
         <Route path="spaceship" element={<SpaceShip />} />
         <Route path="species" element={<Species />} />
         <Route path="people" element={<People />} />
-        <Route path="people/:id" element={<PeopleInfo />} />
+        <Route path="people-info/:id" element={<PeopleInfo />} />
+        <Route path="species-info/:id" element={<SpeciesInfo />} />
+        <Route path="spaceship-info/:id" element={<SpaceShipInfo />} />
+        <Route path="film-info/:id" element={<FilmInfo />} />
       </Route>
     </Route>
   )

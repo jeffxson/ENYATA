@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function People() {
+  const navgate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,11 +32,12 @@ function People() {
   ];
   const headerData = [
     "",
-    "Film Title",
-    "Release Date",
-    "Director",
-    "Producer",
-    "Episode Id",
+    "Name",
+    "Birth Year",
+    "Gender",
+    "Hair Color",
+    "Height Id",
+    "Created ",
   ];
   return (
     <>
@@ -67,25 +70,31 @@ function People() {
             </tr>
           </thead>
           <tbody>
-            {data?.results?.map((item) => (
-              <tr>
+            {data?.results?.map((item, index) => (
+              <tr
+                className="cursor-pointer"
+                onClick={() => navgate(`/dashboard/people-info/${index + 1}`)}
+              >
                 <td className="border-b border-gray-200 p-2 py-5">
                   <input type="checkbox" />
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.title}
+                  {item?.name}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.release_date}
+                  {item?.birth_year}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.director}
+                  {item?.gender}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.producer}
+                  {item?.hair_color}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.episode_id}
+                  {item?.height}
+                </td>
+                <td className="border-b border-gray-200 p-2 py-5">
+                  {item?.created}
                 </td>
               </tr>
             ))}

@@ -70,8 +70,11 @@ function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            {data?.results?.map((item) => (
-              <tr>
+            {data?.results?.map((item, index) => (
+              <tr
+                className="cursor-pointer"
+                onClick={() => navgate(`/dashboard/film-info/${index + 1}`)}
+              >
                 <td className="border-b border-gray-200 p-2 py-5">
                   <input type="checkbox" />
                 </td>

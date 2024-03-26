@@ -43,8 +43,8 @@ function Layout() {
             onClick={() => navgate("/dashboard")}
             className={
               window.location.pathname === "/dashboard"
-                ? "py-3 mb-10 px-4 hover:bg-blue-500 bg-blue-500 rounded block"
-                : "py-3  mb-10 px-4 hover:bg-blue-500  rounded block"
+                ? "py-3 mb-10 px-4 hover:bg-blue-500 bg-blue-500 rounded block cursor-pointer"
+                : "py-3  mb-10 px-4 hover:bg-blue-500  rounded block cursor-pointer"
             }
           >
             <p className="flex">
@@ -57,8 +57,8 @@ function Layout() {
               onClick={() => navgate(`${item?.link}`)}
               className={
                 window.location.pathname.includes(`${item?.link}`)
-                  ? "py-3 mb-2 px-4 hover:bg-blue-500 bg-blue-500 rounded block"
-                  : "py-3  mb-2 px-4 hover:bg-blue-500  rounded block"
+                  ? "py-3 mb-2 px-4 hover:bg-blue-500 bg-blue-500 rounded block cursor-pointer"
+                  : "py-3  mb-2 px-4 hover:bg-blue-500  rounded block cursor-pointer"
               }
             >
               <p className="flex mb-1">

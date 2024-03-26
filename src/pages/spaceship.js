@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function SpaceShip() {
+  const navgate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,11 +32,12 @@ function SpaceShip() {
   ];
   const headerData = [
     "",
-    "Film Title",
-    "Release Date",
-    "Director",
-    "Producer",
-    "Episode Id",
+    "Name",
+    "Model",
+    "Class",
+    "Passanger",
+    "Length ",
+    "Charater ",
   ];
   return (
     <>
@@ -67,25 +70,33 @@ function SpaceShip() {
             </tr>
           </thead>
           <tbody>
-            {data?.results?.map((item) => (
-              <tr>
+            {data?.results?.map((item, index) => (
+              <tr
+                className="cursor-pointer"
+                onClick={() =>
+                  navgate(`/dashboard/spaceship-info/${index + 1}`)
+                }
+              >
                 <td className="border-b border-gray-200 p-2 py-5">
                   <input type="checkbox" />
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.title}
+                  {item?.name}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.release_date}
+                  {item?.model}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.director}
+                  {item?.crew}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.producer}
+                  {item?.passengers}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.episode_id}
+                  {item?.length}
+                </td>
+                <td className="border-b border-gray-200 p-2 py-5">
+                  {item?.consumables}
                 </td>
               </tr>
             ))}

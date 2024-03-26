@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Species() {
+  const navgate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("https://swapi.dev/api/films/");
+        const response = await axios.get("https://swapi.dev/api/species/");
         setData(response.data);
         setLoading(false);
       } catch (error) {
@@ -30,11 +32,12 @@ function Species() {
   ];
   const headerData = [
     "",
-    "Film Title",
-    "Release Date",
-    "Director",
-    "Producer",
-    "Episode Id",
+    "Name",
+    "Classification",
+    "Eye color",
+    "Hair Color",
+    "Height ",
+    "Created ",
   ];
   return (
     <>
@@ -67,25 +70,31 @@ function Species() {
             </tr>
           </thead>
           <tbody>
-            {data?.results?.map((item) => (
-              <tr>
+            {data?.results?.map((item, index) => (
+              <tr
+                className="cursor-pointer"
+                onClick={() => navgate(`/dashboard/species-info/${index + 1}`)}
+              >
                 <td className="border-b border-gray-200 p-2 py-5">
                   <input type="checkbox" />
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.title}
+                  {item?.name}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.release_date}
+                  {item?.classification}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.director}
+                  {item?.eye_colors}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.producer}
+                  {item?.hair_colors}
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {item?.episode_id}
+                  {item?.created}
+                </td>
+                <td className="border-b border-gray-200 p-2 py-5">
+                  {item?.average_height}
                 </td>
               </tr>
             ))}
