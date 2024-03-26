@@ -92,9 +92,9 @@ function Species() {
                 </td>
                 <td className="border-b border-gray-200 p-2 py-5">
                   {item?.average_height}
-                </td>{" "}
+                </td>
                 <td className="border-b border-gray-200 p-2 py-5">
-                  {new Date(item?.created)}
+                  {item?.created}
                 </td>
               </tr>
             ))}
